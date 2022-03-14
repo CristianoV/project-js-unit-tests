@@ -22,29 +22,34 @@ const circle = require('../src/circle');
 
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
 */
+const testandoCircle = circle(3);
 
 describe('4 - Implemente os casos de teste para a função `circle`', () => {
   // it('Verifica se ao receber um raio, a função `circle` retorna um objeto contedos os valores esperados', () => {
     // ESCREVA SEUS TESTES ABAIXO:
+
     it('Testa se circle retorna undefined, caso o parâmetro passado não seja um número.', () => {
       expect(circle('a')).toBeUndefined();
     });
     it('Teste se circle retorna um objeto.', () => {
-      expect(typeof circle(1)).toBe('object')
+      expect(typeof circle(5)).toBe('object')
     });
-    // Teste se o objeto retornado tem 3 propriedades.
     it('Teste se o objeto retornado tem 3 propriedades.', () => {
-      expect(Object.keys(circle(3)).length).toBe(3)
+      expect(Object.keys(circle(5)).length).toBe(3);
     })
     it('Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.', () => {
       expect(circle()).toBeUndefined
     })
     it('Teste se dentro do objeto retornado, a função retorna uma key com value igual a circunferência correta para um círculo de raio 2.', () => {
-      expect(circle(2).circumference).toBeCloseTo(12.56) //correto = 12.566
+      expect(circle(2).circumference).toBeCloseTo(12.56)
     });
     it('Teste se dentro do objeto retornado, a função retorna uma key com value igual a área correta para um círculo de raio 3.', () => {
-      expect(circle(3).area).toBeCloseTo(28.259) //correto = 28.274
+      expect(circle(3).area).toBeCloseTo(28.26)
     })
-    // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
+    it('Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.', () => {
+    expect(testandoCircle.radius).toBeCloseTo(3);
+    expect(testandoCircle.area).toBeCloseTo(28.26);
+    expect(testandoCircle.circumference).toBeCloseTo(18.84);
+    })
   });
 // });
